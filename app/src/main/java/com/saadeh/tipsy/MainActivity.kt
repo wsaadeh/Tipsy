@@ -16,6 +16,8 @@ import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.button.MaterialButtonToggleGroup
 import com.google.android.material.snackbar.Snackbar
 import org.w3c.dom.Text
+import java.text.NumberFormat
+import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,6 +40,9 @@ class MainActivity : AppCompatActivity() {
         val tvTip = findViewById<TextView>(R.id.tv_tip)
         val edtBill = findViewById<EditText>(R.id.edt_bill)
         val tvCust = findViewById<TextView>(R.id.tv_custom)
+        var lvBill: Float = 0f
+        var lvTip: Float = 0f
+        var lvPerson: Float = 0f
 
 
 
@@ -45,10 +50,12 @@ class MainActivity : AppCompatActivity() {
             if (tvCust.text.toString().toFloat() > 0f){
                 vpercent = tvCust.text.toString().toFloat() / 100
             }
-            tvBill.text = (edtBill.text.toString().toFloat() / tvSplit.text.toString().toInt()).toString()
-            tvTip.text = (tvBill.text.toString().toFloat() * vpercent).toString()
-            tvPerson.text = (tvBill.text.toString().toFloat() + tvTip.text.toString().toFloat()).toString()
-
+            lvBill = edtBill.text.toString().toFloat() / tvSplit.text.toString().toInt()
+            lvTip = lvBill * vpercent
+            lvPerson = lvBill + lvTip
+            tvBill.text = NumberFormat.getCurrencyInstance(Locale("pt","BR")).format(lvBill)
+            tvTip.text = NumberFormat.getCurrencyInstance(Locale("pt","BR")).format(lvTip)
+            tvPerson.text = NumberFormat.getCurrencyInstance(Locale("pt","BR")).format(lvPerson)
         }
 
         btnDel.setOnClickListener(){
