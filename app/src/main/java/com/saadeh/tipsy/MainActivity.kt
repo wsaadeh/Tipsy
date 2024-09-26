@@ -2,12 +2,14 @@ package com.saadeh.tipsy
 
 import android.os.Bundle
 import android.text.style.ClickableSpan
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -35,11 +37,18 @@ class MainActivity : AppCompatActivity() {
         val tvPerson = findViewById<TextView>(R.id.tv_person)
         val tvTip = findViewById<TextView>(R.id.tv_tip)
         val edtBill = findViewById<EditText>(R.id.edt_bill)
+        val tvCust = findViewById<TextView>(R.id.tv_custom)
+
+
 
         btnCalc.setOnClickListener(){
+            if (tvCust.text.toString().toFloat() > 0f){
+                vpercent = tvCust.text.toString().toFloat() / 100
+            }
             tvBill.text = (edtBill.text.toString().toFloat() / tvSplit.text.toString().toInt()).toString()
             tvTip.text = (tvBill.text.toString().toFloat() * vpercent).toString()
             tvPerson.text = (tvBill.text.toString().toFloat() + tvTip.text.toString().toFloat()).toString()
+
         }
 
         btnDel.setOnClickListener(){
@@ -66,7 +75,7 @@ class MainActivity : AppCompatActivity() {
                     R.id.button2 -> vpercent = 0.15f //showToast("15% percent")
                     R.id.button3 -> vpercent = 0.20f //showToast("20% percent")
                     R.id.button4 -> vpercent = 0.25f //showToast("25% percent")
-                    R.id.button5 -> showToast("Custom tip")
+                    R.id.button5 -> vpercent = tvCust.text.toString().toFloat()//showToast("Custom tip")
                 }
             }else{
                 if (toggleButtonGroup.checkedButtonId == View.NO_ID){
@@ -74,6 +83,35 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+
+        showEditTextDialog()
+
+    }
+
+    private fun showEditTextDialog(){
+        val btnCustom = findViewById<Button>(R.id.button5)
+        val tvCust = findViewById<TextView>(R.id.tv_custom)
+        btnCustom.setOnClickListener(){
+            val builder = AlertDialog.Builder(this)
+            val inflater = layoutInflater
+            val dialogLayout = inflater.inflate(R.layout.edit_text_layout, null)
+            val editText = dialogLayout.findViewById<EditText>(R.id.edt_tip)
+
+
+            with(builder){
+                setTitle("Enter custom tip!")
+                setPositiveButton("OK"){dialog, which ->
+                    tvCust.text = editText.text.toString()
+                }
+                setNegativeButton("Cancel"){dialog, which ->
+                    Log.d("Main", "Custom tip canceled.")
+                }
+                setView(dialogLayout)
+                show()
+            }
+        }
+
+
     }
 
     private fun showToast(str: String){

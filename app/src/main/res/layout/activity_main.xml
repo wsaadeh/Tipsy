@@ -5,20 +5,9 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/bg_tipsy">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tipsy"
-        android:textSize="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.07" />
 
     <TextView
         android:id="@+id/textView"
@@ -27,33 +16,32 @@
         android:text="Enter bill total"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.203"
+        app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.168" />
-
+        app:layout_constraintVertical_bias="0.213" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        app:hintEnabled="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.343"
+        app:layout_constraintHorizontal_bias="0.062"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.225"
-        app:hintEnabled="false">
-
+        app:layout_constraintVertical_bias="0.269">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_bill"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Ex. 999.99"
-            tools:layout_editor_absoluteX="11dp"
-            tools:layout_editor_absoluteY="157dp"
-            android:inputType="numberDecimal"/>
+            android:inputType="numberDecimal"
+            tools:layout_editor_absoluteX="12dp"
+            tools:layout_editor_absoluteY="157dp" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -63,10 +51,10 @@
         android:text="Choose tip"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.186"
+        app:layout_constraintHorizontal_bias="0.046"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.327" />
+        app:layout_constraintVertical_bias="0.366" />
 
     <com.google.android.material.button.MaterialButtonToggleGroup
         android:id="@+id/toggleButtonGroup"
@@ -75,17 +63,18 @@
         android:layout_margin="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.218"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
-        app:layout_constraintVertical_bias="0.075"
+        app:layout_constraintVertical_bias="0.079"
         app:singleSelection="true">
 
         <Button
             android:id="@+id/button"
+            style="@style/ToggleButtonWithPercent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="10%"
-            style="@style/ToggleButtonWithPercent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.133"
@@ -95,10 +84,10 @@
 
         <Button
             android:id="@+id/button2"
+            style="@style/ToggleButtonWithPercent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="15%"
-            style="@style/ToggleButtonWithPercent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
@@ -108,10 +97,10 @@
 
         <Button
             android:id="@+id/button3"
+            style="@style/ToggleButtonWithPercent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="20%"
-            style="@style/ToggleButtonWithPercent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.851"
@@ -121,10 +110,10 @@
 
         <Button
             android:id="@+id/button4"
+            style="@style/ToggleButtonWithPercent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="25%"
-            style="@style/ToggleButtonWithPercent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.321"
@@ -134,10 +123,10 @@
 
         <Button
             android:id="@+id/button5"
+            style="@style/ToggleButtonWithPercent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Custom tip"
-            style="@style/ToggleButtonWithPercent"/>
+            android:text="Custom tip" />
 
     </com.google.android.material.button.MaterialButtonToggleGroup>
 
@@ -148,10 +137,10 @@
         android:text="Split"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.186"
+        app:layout_constraintHorizontal_bias="0.185"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.474" />
+        app:layout_constraintVertical_bias="0.539" />
 
     <Button
         android:id="@+id/btn_Del"
@@ -160,10 +149,10 @@
         android:text="-"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.221"
+        app:layout_constraintHorizontal_bias="0.256"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.535" />
+        app:layout_constraintVertical_bias="0.606" />
 
     <Button
         android:id="@+id/btn_Add"
@@ -175,21 +164,21 @@
         app:layout_constraintHorizontal_bias="0.811"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.535" />
+        app:layout_constraintVertical_bias="0.606" />
 
     <TextView
         android:id="@+id/tv_split"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="1"
-        android:textStyle="bold"
         android:textSize="22dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.524"
+        app:layout_constraintHorizontal_bias="0.525"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.535" />
+        app:layout_constraintVertical_bias="0.601" />
 
     <TextView
         android:id="@+id/textView6"
@@ -198,23 +187,23 @@
         android:text="Total per person"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.206"
+        app:layout_constraintHorizontal_bias="0.207"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.633" />
+        app:layout_constraintVertical_bias="0.674" />
 
     <TextView
         android:id="@+id/tv_person"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="$ 45.05"
+        tools:text="$ 45.05"
         android:textSize="36dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.219"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.698" />
+        app:layout_constraintVertical_bias="0.742" />
 
     <TextView
         android:id="@+id/textView8"
@@ -244,7 +233,7 @@
         android:id="@+id/tv_bill"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="$37.54"
+        tools:text="$37.54"
         android:textSize="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -257,7 +246,7 @@
         android:id="@+id/tv_tip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="$7.51"
+        tools:text="$7.51"
         android:textSize="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -270,12 +259,23 @@
         android:id="@+id/btn_Calc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Calcular"
+        android:text="Calculate"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.225"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.959" />
+
+    <TextView
+        android:id="@+id/tv_custom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.722"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
