@@ -1,5 +1,5 @@
 # Tipsy
-This project is a app Android Native with kotlin language. The main objective of this app  is to calculate the bill tip, considering the number of persons to divide the tab.  
+This project is a Native Android app built with Kotlin. The main purpose of the app is to calculate the tip for a bill, based on the number of people splitting the total amount.
 
 ## :camera_flash: Screenshots
 <!-- You can add more screenshots here if you like -->
